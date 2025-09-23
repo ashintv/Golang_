@@ -17,6 +17,30 @@ func KanKun(s string) (st string, l int) {
 	return
 }
 
+// function as an args
+func CallB(f1 func(a int, b string) string, b string) string {
+	srt := f1(5, "hello") + b
+	return srt
+}
+
+type rect1 struct {
+	len int
+	wid int
+}
+
+func Findarea(rect rect1) int {
+	return rect.len * rect.wid
+}
+
+func (r rect1) AttachedArea() int {
+	return (r.len + r.wid) * 2
+}
+
+func (r *rect1) Updater(l int, w int) {
+	r.len = l
+	r.wid = w
+}
+
 func main() {
 	// for i := 1; i < 10; i++ {
 	// 	println(i)
@@ -104,4 +128,15 @@ func main() {
 
 	st, l := KanKun("ashin")
 	fmt.Println(st, l)
+
+	res := CallB(Appender, "Ashin")
+	fmt.Println(res, "as callB result")
+
+	// structs methode 1
+	rect_1 := rect1{len: 5, wid: 5}
+	area := Findarea(rect_1)
+	fmt.Println(area)
+	rect_1.Updater(10, 10)
+	fmt.Println("  ", rect_1.AttachedArea())
+
 }
