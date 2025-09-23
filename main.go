@@ -59,4 +59,11 @@ func main() {
 		arr2 = append(arr2, strconv.Itoa(value)+"Number")
 	}
 	fmt.Println(arr2)
+
+	//slicing like python
+	slice := arr2[2:]
+	fmt.Println(slice)
+
+	slice = append(slice, "1" , "added" , "hello")
+	fmt.Println(slice)
 }
