@@ -5,6 +5,18 @@ import (
 	"strconv"
 )
 
+// function
+
+func Appender(a int, b string) string {
+	return strconv.Itoa(a) + b
+}
+
+func KanKun(s string) (st string, l int) {
+	st += "verified"
+	l = len(s)
+	return
+}
+
 func main() {
 	// for i := 1; i < 10; i++ {
 	// 	println(i)
@@ -64,6 +76,32 @@ func main() {
 	slice := arr2[2:]
 	fmt.Println(slice)
 
-	slice = append(slice, "1" , "added" , "hello")
+	slice = append(slice, "1", "added", "hello")
 	fmt.Println(slice)
+
+	// maps
+
+	m := make(map[string]int)
+	m["ashin"] = 5
+	m["ak"] = 2
+	m["none"] = 4
+
+	var val, exist = m["ashin"]
+	fmt.Println(val, exist)
+
+	val, exist = m["as"]
+	fmt.Println(val, exist)
+	fmt.Println(m)
+
+	//string is mutable
+	str := "hello go"
+	println(str)
+	str = "hi there"
+	println(str)
+
+	firstcall := Appender(5, "hello")
+	fmt.Println(firstcall)
+
+	st, l := KanKun("ashin")
+	fmt.Println(st, l)
 }
